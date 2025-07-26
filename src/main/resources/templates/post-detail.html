@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${post.title}">Post Detail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .date { color: #888; font-size: 0.8em; }
+        .content { margin-top: 20px; line-height: 1.6; }
+        .actions { margin-top: 30px; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1 th:text="${post.title}">Post Title</h1>
+    <p class="date" th:text="${#temporals.format(post.createdAt, 'dd-MM-yyyy HH:mm')}">Date</p>
+    
+    <div class="content" th:text="${post.content}">Content</div>
+    
+    <div class="actions">
+        <a th:href="@{/}">Back to Posts</a>
+    </div>
+</body>
+</html>
